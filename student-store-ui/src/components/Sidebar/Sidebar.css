@@ -1,0 +1,29 @@
+.sidebar {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    background-color: lightblue;
+}
+
+#open {
+    position: relative;
+    top: 0cm;
+}
+
+#cart {
+   position: relative;
+   top: 2cm;
+}
+
+#payment {
+    position: relative;
+    top: 4cm;
+}
+
+#checkout {
+    position: relative;
+    top: 6cm;
+}
