@@ -1,5 +1,8 @@
 import * as React from "react"
 import "./NotFound.css"
+import { NavLink } from "react-router-dom"
+import Navbar from "../Navbar/Navbar"
+import Sidebar from "../Sidebar/Sidebar"
 
 export function NotFound(props) {
   return(
