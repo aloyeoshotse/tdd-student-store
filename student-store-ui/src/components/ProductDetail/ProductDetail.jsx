@@ -1,12 +1,14 @@
 import * as React from "react"
 import "./ProductDetail.css"
 import { useState,useEffect } from "react"
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 
-export function ProductDetail({handleAddItemToCart,handleRemoveItemToCart}) {
-    const [product, updateProduct] = useState();
-    let {productId} = useParams();
+
+export function ProductDetail(props) {
+    // const [product, updateProduct] = useState();
+    // let {productId} = useParams();
+    <NavLink to="/products/:productId/"/>
     // useEffect(async () => {
     //     let res = await fetch()
     // }, [])
@@ -15,4 +17,5 @@ export function ProductDetail({handleAddItemToCart,handleRemoveItemToCart}) {
         </div>
     )
 }
+
 export default ProductDetail
