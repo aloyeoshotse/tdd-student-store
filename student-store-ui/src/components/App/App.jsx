@@ -11,10 +11,9 @@ export default function App() {
       <BrowserRouter>
         {/* adding these routes removes the views from the page. if error continues, comment it out */}
         <Routes>
-          <Route path="Home" element={<Home />}/>
-          <Route path="About" element={<About />}/>
-          <Route path="Contact" element={<Contact />}/>
-          <Route path="Buy" element={<Buy />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="/products/:productId" element={<ProductDetail />}/>
+          <Route path="*" element={<NotFound />}/>
         </Routes>
         <main>
           {/* YOUR CODE HERE! */}
