@@ -10,6 +10,7 @@ export function NotFound(props) {
       <Sidebar />
       <Navbar />
       <NavLink to="*"/> 
+      <p>not found</p>
     </div>
   )
 }
