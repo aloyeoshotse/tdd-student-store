@@ -1,7 +1,12 @@
 import * as React from "react"
 import "./Sidebar.css"
 
-export default function Sidebar() {
+//sidebar link: https://codepen.io/vyvm/pen/abqgdgK
+
+export default function Sidebar({isOpen, handleOnToggle}) {
+  var buttonClassName;
+  if (isOpen) {buttonClassName = "open"}
+  else { buttonClassName = ""}
   return (
     <section className="sidebar">
       <button id="open">open arrow</button>
