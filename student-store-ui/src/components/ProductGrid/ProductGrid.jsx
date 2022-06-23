@@ -6,7 +6,7 @@ export default function ProductGrid({products, handleAddItemToCart, handleRemove
         <div className="product-grid">
             {products.map((item) => {
                 return(
-                    <ProductCard product={item}/>
+                    <ProductCard product={item} showDescription={false}/>
                 )
             })}
         </div>

@@ -30,7 +30,7 @@ export default function App() {
       .catch((err) => {
         setError("No products found");
       });
-  }, []);
+  },[]);
 
   function handleOnToggle() {
     //handles the open and closed status of the sidebar
