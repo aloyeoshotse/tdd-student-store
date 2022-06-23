@@ -1,19 +1,22 @@
-import * as React from "react"
-import { NavLink } from "react-router-dom"
-import Navbar from "../Navbar/Navbar"
-import ProductCard from "../ProductCard/ProductCard"
-import Sidebar from "../Sidebar/Sidebar"
-import "./Home.css"
+import * as React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import ProductCard from "../ProductCard/ProductCard";
+import Sidebar from "../Sidebar/Sidebar";
+import "./Home.css";
 
-
-export default function Home({products, handleAddItemToCart, handleRemoveItemToCart}) {
+export default function Home({
+  products,
+  handleAddItemToCart,
+  handleRemoveItemToCart,
+}) {
   return (
     <div className="home">
       <Sidebar />
       <Navbar />
-      <NavLink to="/"/> 
+      <Link to="/" />
       {/*render Hero component */}
       {/* <ProductGrid products={products}/> */}
     </div>
-  )
+  );
 }

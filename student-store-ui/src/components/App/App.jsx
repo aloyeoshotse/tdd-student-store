@@ -5,12 +5,12 @@ import Home from "../Home/Home";
 import { ProductDetail } from "../ProductDetail/ProductDetail";
 import { NotFound } from "../NotFound/NotFound";
 import "./App.css";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 
 export default function App() {
-  const apiURL = "https://codepath-store-api.herokuapp.com/store"
+  const apiURL = "https://codepath-store-api.herokuapp.com/store";
   const [products, setProducts] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState("");
@@ -19,61 +19,77 @@ export default function App() {
   const [checkoutForm, setCheckoutForm] = useState();
 
   useEffect(() => {
-    axios.get(apiURL)
+    axios
+      .get(apiURL)
       .then((res) => {
         setProducts(res.data.products);
-        console.log("products=",products);
-        if (products.length == 0) {setError("No products found")}
+        console.log("products=", products);
+        if (products.length == 0) {
+          setError("No products found");
+        }
       })
-      .catch((err) => { setError("No products found")})
-    },[])
-
+      .catch((err) => {
+        setError("No products found");
+      });
+  }, []);
 
   function handleOnToggle() {
     //handles the open and closed status of the sidebar
-    if (isOpen) {setIsOpen(false)}
-    else {setIsOpen(true)}
+    if (isOpen) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
   }
-
 
   function handleAddItemToCart(productId) {
     //this function adds items to shopping cart
-    if (!shoppingCart.some((item) => {item.itemId === productId.id})) {
+    if (
+      !shoppingCart.some((item) => {
+        item.itemId === productId.id;
+      })
+    ) {
       /* checks if shoppingCart contains the object with a similar id as what is passed into function 
           if it does not, it assigns the object and adds it to the array*/
-      const newShoppingCartItem = {itemId: productId.id, quantity: 1}
+      const newShoppingCartItem = { itemId: productId.id, quantity: 1 };
       setShoppingCart([...shoppingCart, newShoppingCartItem]);
-      console.log("new quantity=", newShoppingCartItem)
-    }
-    else {
+      console.log("new quantity=", newShoppingCartItem);
+    } else {
       /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
-      shoppingCart.find((item) => {item.itemId === productId.id}).quantity += 1;
-      console.log("quatity more than 1=",shoppingCart[idx].quantity)
+      shoppingCart.find((item) => {
+        item.itemId === productId.id;
+      }).quantity += 1;
+      console.log("quatity more than 1=", shoppingCart[idx].quantity);
     }
-     //add prices to total price:
+    //add prices to total price:
     // let totalPrice;
     // totalPrice += () => {shoppingCart.map(item => {item.price * item.quantity})}
     // console.log("total",totalPrice);
   }
 
-
   function handleRemoveItemFromCart(productId) {
     //this function removes items from the shopping cart
-    if (shoppingCart.some((item) => {item.itemId === productId.id})) {
-       /* checks if shoppingCart contains the object with a similar id as what is passed into function 
+    if (
+      shoppingCart.some((item) => {
+        item.itemId === productId.id;
+      })
+    ) {
+      /* checks if shoppingCart contains the object with a similar id as what is passed into function 
           if it does , it decreaces the quantity*/
-        shoppingCart.find((item) => {item.itemId === productId.id}).quantity -= 1;
-        shoppingCart.filter((item) => {item.quantity > 0})
+      shoppingCart.find((item) => {
+        item.itemId === productId.id;
+      }).quantity -= 1;
+      shoppingCart.filter((item) => {
+        item.quantity > 0;
+      });
     }
   }
 
-  
   // function handleOnCheckoutFormChange(name,value) {
   //   /*this function updates the checkoutForm state variable */
   //   //const newCheckOutObject = {name: name, value: value}
   //   setCheckoutForm();
   // }
-
 
   // function handleOnSubmitCheckoutForm() {
   //   /*this function submits the user's order to the API*/
@@ -82,14 +98,16 @@ export default function App() {
   //     user {name: }})
   // }
 
-
   return (
     <div className="app">
       <BrowserRouter>
         <main>
           {
             <Routes>
-              <Route path="/" element={<Home handleOnToggle={handleOnToggle}/>} />
+              <Route
+                path="/"
+                element={<Home handleOnToggle={handleOnToggle} />}
+              />
               <Route path="/products/:productId/" element={<ProductDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
