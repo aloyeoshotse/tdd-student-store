@@ -5,18 +5,14 @@ import ProductCard from "../ProductCard/ProductCard";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Home.css";
 
-export default function Home({
-  products,
-  handleAddItemToCart,
-  handleRemoveItemToCart,
-}) {
+export default function Home({ products, handleAddItemToCart, handleRemoveItemToCart }) {
   return (
     <div className="home">
       <Sidebar />
       <Navbar />
       <Link to="/" />
-      {/*render Hero component */}
-      {/* <ProductGrid products={products}/> */}
+      <Hero />
+      <ProductGrid products={products}/>
     </div>
   );
 }

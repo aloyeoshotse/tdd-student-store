@@ -19,8 +19,7 @@ export default function App() {
   const [checkoutForm, setCheckoutForm] = useState();
 
   useEffect(() => {
-    axios
-      .get(apiURL)
+    axios.get(apiURL)
       .then((res) => {
         setProducts(res.data.products);
         console.log("products=", products);
@@ -104,10 +103,7 @@ export default function App() {
         <main>
           {
             <Routes>
-              <Route
-                path="/"
-                element={<Home handleOnToggle={handleOnToggle} />}
-              />
+              <Route path="/" element={<Home handleOnToggle={handleOnToggle} />} />
               <Route path="/products/:productId/" element={<ProductDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
