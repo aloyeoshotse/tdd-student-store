@@ -12,21 +12,21 @@
 
 #open-btn {
     position: relative;
-    top: 0cm;
+    top: 2cm;
 }
 
 
 #cart {
    position: relative;
-   top: 2cm;
+   top: 4cm;
 }
 
 #payment {
     position: relative;
-    top: 4cm;
+    top: 6cm;
 }
 
 #checkout {
     position: relative;
-    top: 6cm;
+    top: 8cm;
 }
