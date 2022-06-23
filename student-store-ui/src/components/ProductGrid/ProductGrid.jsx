@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./ProductGrid.css"
 
-export function ProductGrid({products, handleAddItemToCart, handleRemoveItemToCart}) {
+export default function ProductGrid({products, handleAddItemToCart, handleRemoveItemToCart}) {
     return(
         <div className="product-grid">
             {products.map((item) => {
@@ -12,5 +12,3 @@ export function ProductGrid({products, handleAddItemToCart, handleRemoveItemToCa
         </div>
     )
 }
-
-export default ProductGrid

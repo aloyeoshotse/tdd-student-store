@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./ProductCard.css"
 
-export function ProductCard({product, productId, quantity, handleAddItemToCart, handleRemoveItemToCart, showDescription}) {
+export default function ProductCard({product, productId, quantity, handleAddItemToCart, handleRemoveItemToCart, showDescription}) {
     return(
         <div className="product-card">
            <div className="product-name">{product.name}</div>
@@ -13,4 +13,3 @@ export function ProductCard({product, productId, quantity, handleAddItemToCart, 
     )
 }
 
-export default ProductCard

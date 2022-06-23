@@ -20,4 +20,4 @@ export function ProductDetail(props) {
   );
 }
 
-export default ProductDetail;
+export default ProductDetail

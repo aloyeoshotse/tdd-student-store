@@ -11,8 +11,8 @@ export default function Home({ products, handleAddItemToCart, handleRemoveItemTo
       <Sidebar />
       <Navbar />
       <Link to="/" />
-      <Hero />
-      <ProductGrid products={products}/>
+      {/* <Hero />
+      <ProductGrid products={products}/> */}
     </div>
   );
 }
