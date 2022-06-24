@@ -10,7 +10,7 @@ export function ProductGrid({products, addItems, removeItems}) {
                     console.log("nullitem")
                 }
                 return(
-                    <ProductCard key={idx} product={item} addItems={addItems} removeItems={removeItems} showDescription={false}/>
+                    <ProductCard key={idx} product={item} allowLink={true} addItems={addItems} removeItems={removeItems} showDescription={false}/>
                 )
             })}
         </div>

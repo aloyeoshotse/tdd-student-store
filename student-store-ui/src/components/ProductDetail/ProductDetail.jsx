@@ -12,18 +12,15 @@ import axios from "axios";
 export function ProductDetail({addItems, removeItems}) {
   const [product, setProduct] = useState();
   const params = useParams();
- // const param = useParams("/products/:productId")
   console.log("id=",params.productId)
 
   useEffect(() => {
-    console.log("getdata")
     axios.get("https://codepath-store-api.herokuapp.com/store/" + params.productId)
       .then((res) => {
         setProduct(res.data.product)
       })
   },[])
   
-  console.log("prod=",product)
 
   return (
     <div className="product-detail">
