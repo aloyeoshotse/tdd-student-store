@@ -4,8 +4,10 @@ import "./Hero.css"
 export function Hero() {
     return (
         <div className="hero">
-            <p className="intro">"Welcom"</p>
-            <img className="hero-img" src="" alt="" />
+            <div className="content">
+                <p className="intro">Welcome</p>
+                <img className="hero-img" src="" alt="" />
+            </div>
         </div>
     )
 }

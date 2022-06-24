@@ -11,8 +11,8 @@ export default function Home({ products, addItems, removeItems }) {
     <div className="home">
       <Sidebar />
       <Navbar />
-      {/* <Link to="/" /> */}
-      {/* <Hero /> */}
+      <Link to="/" />
+      <Hero />
       <ProductGrid products={products} addItems={addItems} removeItems={removeItems}/>
     </div>
   );

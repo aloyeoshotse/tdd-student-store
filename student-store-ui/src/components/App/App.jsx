@@ -24,8 +24,7 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [checkoutForm, setCheckoutForm] = useState();
 
-  function getData() {
-    //retrieves data from the API
+  useEffect(() => {
     axios.get(apiURL)
       .then((res) => {
         setProducts(res.data.products);
@@ -34,12 +33,9 @@ export default function App() {
         }
       })
       .catch((err) => {
-        setError("No products found");
-      });
-  }
-
-  useEffect(() => {getData()},[]);
-
+        setError("No products found")
+      })
+      }, [])
 
   function handleOnToggle() {
     //handles the open and closed status of the sidebar

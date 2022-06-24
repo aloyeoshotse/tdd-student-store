@@ -14,9 +14,3 @@
 .home .navbar {
   float: top;
 }
-
-.home .product-grid {
-  margin-left: 2cm;
-  margin-top: 10cm;
-  display: flex;
-}

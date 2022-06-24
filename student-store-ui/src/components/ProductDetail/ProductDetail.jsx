@@ -13,12 +13,12 @@ export function ProductDetail({addItems, removeItems}) {
   const [product, setProduct] = useState();
   let { productId } = useParams();
  // const param = useParams("/products/:productId")
-  console.log("id=",{productId})
+  console.log("id=",productId)
   console.log(product)
-  const link = `/products/${productId}/`
+  let link = `/store/${{productId}}`
 
   useEffect(() => {
-    axios.get(`/store/:productId`)
+    axios.get(`/store/${{productId}}`)
       .then((res) => {
         console.log("product-detail=",res)
         setProduct(res.data.product)
@@ -31,7 +31,6 @@ export function ProductDetail({addItems, removeItems}) {
     <div className="product-detail">
       <Sidebar />
       <Navbar />
-      <Link to={link} />
       <ProductView product={product} productId={productId} addItems={addItems} removeItems={removeItems}/>
     </div>
   );
