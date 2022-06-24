@@ -6,7 +6,9 @@ export function ProductGrid({products, addItems, removeItems}) {
     return(
         <div className="product-grid">
             {products.map((item,idx) => {
-                //console.log(item)
+                if (!item){
+                    console.log("nullitem")
+                }
                 return(
                     <ProductCard key={idx} product={item} addItems={addItems} removeItems={removeItems} showDescription={false}/>
                 )

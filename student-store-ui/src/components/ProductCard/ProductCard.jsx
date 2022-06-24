@@ -1,18 +1,26 @@
 import * as React from "react"
 import "./ProductCard.css"
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-export function ProductCard({product, productId, quantity, addItems, removeItems, showDescription}) {
+export function ProductCard({ product, quantity, addItems, removeItems, showDescription}) {
+    useEffect(() => {
+        console.log(product)
+    }, [])
     let dollarUSFormat = Intl.NumberFormat('en-US');
-    const link = `/products/${productId}`
+    const link = `/products/${product.id}`
+    const productId = product.id;
     //console.log(showDescription)
-    console.log(product)
+    console.log("key=",productId)
     return(
         <div className="product-card">
             <div className="media">
-                <a href={"/products/" + product.id}>
-                <img id="img" src={product.image} />
+                <a href={link} >
+                    <img href={link} id="img" src={product.image} />
                 </a>
+                {/* <a={"/products/:productId"}>
+                <img id="img" src={product.image} />
+                </Link> */}
             </div>
             <span className="product-name">{product.name}</span>
             <button className="add" onClick={() => addItems(productId)}>+</button>
