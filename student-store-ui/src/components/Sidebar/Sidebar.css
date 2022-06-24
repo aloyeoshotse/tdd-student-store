@@ -1,4 +1,4 @@
-.sidebar {
+.close-sidebar {
     height: 100%;
     width: 100px;
     position: fixed;
@@ -8,6 +8,18 @@
     background-color: lightblue;
     /* add border color */
 }
+
+.open-sidebar {
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    overflow-x: hidden;
+    background-color: lightblue;
+    /* add border color */
+}
+
 
 
 #toggle-button {

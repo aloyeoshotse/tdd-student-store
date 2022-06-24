@@ -37,13 +37,9 @@ export default function App() {
       })
       }, [])
 
-  function handleOnToggle() {
+  function handleOnToggle(isOpen) {
     //handles the open and closed status of the sidebar
-    if (isOpen) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
+   {return isOpen ? setIsOpen(false) : setIsOpen(true)}
   }
 
   function handleAddItemToCart(productId) {
@@ -108,9 +104,9 @@ export default function App() {
         <main>
           {
             <Routes>
-              <Route path="/" element={<Home products={products} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart}/>} />
-              <Route path="/products/:productId" element={<ProductDetail addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart}/>} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={<Home isOpen={isOpen} products={products} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle}/>} />
+              <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle}/>} />
+              <Route path="*" element={<NotFound isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
             </Routes>
           }
         </main>

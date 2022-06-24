@@ -6,10 +6,10 @@ import { Sidebar } from "../Sidebar/Sidebar";
 import { Hero } from "../Hero/Hero"
 import { ProductGrid } from "../ProductGrid/ProductGrid"
 
-export default function Home({ products, addItems, removeItems }) {
+export default function Home({ isOpen, products, addItems, removeItems, handleOnToggle}) {
   return (
     <div className="home">
-      <Sidebar />
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle}/>
       <Navbar />
       <Link to="/" />
       <Hero />

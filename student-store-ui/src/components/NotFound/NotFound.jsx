@@ -10,7 +10,7 @@ export function NotFound(props) {
       <Sidebar />
       <Navbar />
       <Link to="*" />
-      <p>not found</p>
+      <p id="text">not found</p>
     </div>
   );
 }
