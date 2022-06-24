@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./Hero.css"
 
-export default function Hero() {
+export function Hero() {
     return (
         <div className="hero">
             <p className="intro">"Welcom"</p>
@@ -9,3 +9,5 @@ export default function Hero() {
         </div>
     )
 }
+
+export default Hero

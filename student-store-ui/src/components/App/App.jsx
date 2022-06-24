@@ -9,6 +9,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+/*
+flow1: App --> Home --> ProductGrid --> ProductCard 
+
+flow2: App --> ProductDetail --> ProductView
+*/
+
 export default function App() {
   const apiURL = "https://codepath-store-api.herokuapp.com/store";
   const [products, setProducts] = useState([]);
@@ -19,6 +25,7 @@ export default function App() {
   const [checkoutForm, setCheckoutForm] = useState();
 
   function getData() {
+    //retrieves data from the API
     axios.get(apiURL)
       .then((res) => {
         setProducts(res.data.products);
@@ -30,8 +37,9 @@ export default function App() {
         setError("No products found");
       });
   }
+
   useEffect(() => {getData()},[]);
-  useEffect(() => {console.log(products)},[products])
+
 
   function handleOnToggle() {
     //handles the open and closed status of the sidebar
@@ -104,8 +112,8 @@ export default function App() {
         <main>
           {
             <Routes>
-              <Route path="/" element={<Home handleOnToggle={handleOnToggle} />} />
-              <Route path="/products/:productId/" element={<ProductDetail />} />
+              <Route path="/" element={<Home products={products} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart}/>} />
+              <Route path="/products/:productId" element={<ProductDetail addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart}/>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           }

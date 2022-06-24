@@ -1,0 +1,21 @@
+.product-card {
+    flex: 10%;
+    margin:1cm;
+    border-radius: 25px;
+    
+    height: auto;
+}
+
+#img {
+    float: left;
+    width:  300px;
+    height: 300px;
+    /* margin-left: 1cm; */
+    border-radius: 25px;
+    background-size: cover;
+}
+
+.product-name {
+    margin: 1cm;
+    text-align: center;
+}

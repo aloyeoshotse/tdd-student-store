@@ -1,32 +1,38 @@
 import * as React from "react";
 import "./ProductDetail.css";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
+import ProductView from "../ProductView/ProductView";
 import axios from "axios";
 
 
-export function ProductDetail({handleAddItemToCart, handleRemoveItemToCart}) {
+export function ProductDetail({addItems, removeItems}) {
   const [product, setProduct] = useState();
-  const param = useParams("/store/:productId")
-  const {productID} = param
+  let { productId } = useParams();
+ // const param = useParams("/products/:productId")
+  console.log("id=",{productId})
+  console.log(product)
+  const link = `/products/${productId}/`
+
   useEffect(() => {
-    axios.get(`/store/${productID}`)
+    axios.get(`/store/:productId`)
       .then((res) => {
         console.log("product-detail=",res)
-        // setProduct(res.data)
+        setProduct(res.data.product)
       })
-  }
+  },[])
 
-  )
+
   
   return (
     <div className="product-detail">
       <Sidebar />
       <Navbar />
-      <Link to="/products/:productId/" />
-      <ProductView />
+      <Link to={link} />
+      <ProductView product={product} productId={productId} addItems={addItems} removeItems={removeItems}/>
     </div>
   );
 }
