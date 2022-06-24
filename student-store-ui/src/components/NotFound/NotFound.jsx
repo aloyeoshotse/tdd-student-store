@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export function NotFound(props) {
+export function NotFound({isOpen, handleOnToggle}) {
   return (
     <div className="not-found">
-      <Sidebar />
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle}/>
       <Navbar />
       <Link to="*" />
       <p id="text">not found</p>
