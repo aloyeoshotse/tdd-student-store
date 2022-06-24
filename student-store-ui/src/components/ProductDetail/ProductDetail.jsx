@@ -14,18 +14,14 @@ export function ProductDetail({addItems, removeItems}) {
   let { productId } = useParams();
  // const param = useParams("/products/:productId")
   console.log("id=",productId)
-  console.log(product)
-  let link = `/store/${{productId}}`
 
   useEffect(() => {
-    axios.get(`/store/${{productId}}`)
+    axios.get("https://codepath-store-api.herokuapp.com/store/" + productId)
       .then((res) => {
-        console.log("product-detail=",res)
         setProduct(res.data.product)
+        console.log("product-detail=",product)
       })
   },[])
-
-
   
   return (
     <div className="product-detail">

@@ -5,7 +5,10 @@ export function Hero() {
     return (
         <div className="hero">
             <div className="content">
-                <p className="intro">Welcome</p>
+                <div className="intro">
+                    <h1>Welcome</h1>
+                    <p> This student store is readily available for all your needs</p>
+                </div>
                 <img className="hero-img" src="" alt="" />
             </div>
         </div>

@@ -1,5 +1,5 @@
 .product-card {
-    margin:1cm;
+    margin: 1cm;
     border-radius: 25px;
     width: 3.12in;
     height: 400px;
@@ -20,3 +20,13 @@
     margin: 1cm;
     text-align: center;
 }
+/* 
+.product-card .remove{
+    position: relative;
+    left: 2cm;
+}
+
+.product-card .add{
+    position: relative;
+    left: 2cm;
+} */

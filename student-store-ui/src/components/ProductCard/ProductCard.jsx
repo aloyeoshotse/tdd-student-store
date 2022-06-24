@@ -10,7 +10,7 @@ export function ProductCard({product, productId, quantity, addItems, removeItems
     return(
         <div className="product-card">
             <div className="media">
-                <a href={link}>
+                <a href={"/products/" + product.id}>
                 <img id="img" src={product.image} />
                 </a>
             </div>
