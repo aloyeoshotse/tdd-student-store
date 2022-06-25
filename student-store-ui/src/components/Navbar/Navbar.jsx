@@ -8,9 +8,9 @@ export function Navbar() {
     <nav className="navbar">
       <Logo />
       <Link to={"/"} id="home">Home</Link>
-      <span id="about"> About </span>
-      <span id="contact"> Contact Us </span>
-      <span id="buy"> Buy Now </span>
+      <Link to={"*"} id="about"> About </Link>
+      <Link to={"*"} id="contact"> Contact Us </Link>
+      <Link to={"*"} id="buy"> Buy Now </Link>
     </nav>
   );
 }
