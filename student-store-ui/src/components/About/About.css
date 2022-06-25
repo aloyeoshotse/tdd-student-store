@@ -1,0 +1,24 @@
+.about {
+    background-color: lightgray;
+    margin-top: 1in;
+    margin-left: 2in;
+}
+
+.about-card{
+    background-color: white;
+    width: 600px;
+    height: 330px;
+    margin-bottom: 5in;
+    margin-left: 2in;
+}
+
+.about-header{
+    position: relative;
+    left: 50px;
+    top: 10px;
+}
+
+.about-info {
+    margin-left: 70px;
+    margin-right: 40px;
+} 

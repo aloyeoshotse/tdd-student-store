@@ -1,5 +1,5 @@
 import * as React from "react"
-import "./SubNav.css"
+import "./Subnav.css"
 import { useState } from "react"
 import {ProductGrid} from "../ProductGrid/ProductGrid";
 import {ProductCard} from "../ProductCard/ProductCard"
@@ -13,7 +13,7 @@ import {ProductDetail} from "../ProductDetail/ProductDetail"
 //     }, {});
 //   }
 
-export function SubNav({products}) {
+export function Subnav({products}) {
     // const handleFormSubmit = (event) => {
     //     event.preventDefault();
     //     var submit = getFormElemValue(event.target);
@@ -57,4 +57,4 @@ export function SubNav({products}) {
     )
     }
 
-export default SubNav
+export default Subnav
