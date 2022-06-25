@@ -17,6 +17,7 @@ export default function Home({ shoppingCart, isOpen, products, addItems, removeI
       <Hero />
       <Subnav products={products}/>
       <ProductGrid products={products} addItems={addItems} removeItems={removeItems} shoppingCart={shoppingCart}/>
+      <About />
     </div>
   );
 }

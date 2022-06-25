@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
+import {About} from "../About/About"
 
 /*
 flow1: App --> Home --> ProductGrid --> ProductCard 

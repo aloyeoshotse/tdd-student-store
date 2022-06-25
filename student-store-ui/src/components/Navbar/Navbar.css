@@ -9,20 +9,15 @@
 
 #home {
     position: relative;
-    left: 24cm;
+    left: 28cm;
 }
 
 #about {
     position: relative;
-    left: 28cm;
-}
-
-#contact {
-    position: relative;
     left: 32cm;
 }
 
-#buy {
+#contact {
     position: relative;
     left: 36cm;
 }

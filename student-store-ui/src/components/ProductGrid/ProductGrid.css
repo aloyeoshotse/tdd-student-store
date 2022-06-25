@@ -1,11 +1,14 @@
 .product-grid {
+
         display: flex;
         place-items: center;
         flex-wrap: wrap;
         width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 200px;
         margin-top: 4in;
-        /* background-color: black; */
         justify-content: center;
+}
+
+.grid-title {
+width: 100%;
 }

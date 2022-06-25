@@ -9,9 +9,8 @@ export function Navbar({handleScroll, homeRef, aboutRef}) {
     <nav className="navbar">
       <Logo />
       <Link to={"/"} id="home">Home</Link>
-      <Link to={"/about"} id="about"> About </Link>
-      <Link to={"*"} id="contact"> Contact Us </Link>
-      <Link to={"*"} id="buy"> Buy Now </Link>
+      <span id="about"> About </span>
+      <span id="contact"> Contact Us </span>
     </nav>
   );
 }
