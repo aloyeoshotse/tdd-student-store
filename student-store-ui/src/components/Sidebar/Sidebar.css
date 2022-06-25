@@ -11,7 +11,7 @@
 
 .open-sidebar {
     height: 100%;
-    width: 350px;
+    width: 500px;
     position: fixed;
     z-index: 2;
     top: 0;
@@ -22,9 +22,15 @@
 
 
 
-#toggle-button {
+#toggle-button-open {
     position: relative;
     top: 2cm;
+}
+
+#toggle-button-close {
+    position: absolute;
+    top: 2cm;
+    right: 0cm;
 }
 
 
@@ -41,4 +47,15 @@
 #checkout {
     position: relative;
     top: 8cm;
+}
+
+.sidebar .shopping-cart{
+    height: 100%;
+    width: 500px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    overflow-x: hidden;
+    margin-top: 3cm;
+
 }

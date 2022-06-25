@@ -46,14 +46,14 @@ export default function App() {
     }
 
 
-    function handleAddItemToCart(product, shoppingCart) {
+    function handleAddItemToCart(productId) {
       //this function adds items to the shopping cart
       let newShoppingCartItem;
-      const idx = shoppingCart.findIndex(item => item.itemId == product.id);
+      const idx = shoppingCart.findIndex(item => item.itemId == productId);
       if (idx == -1){
         /* checks if shoppingCart contains the object with a similar id as what is passed into function 
             if it does not, it assigns the object and adds it to the array*/
-        newShoppingCartItem = { itemId: product.id, quantity: 1 };
+        newShoppingCartItem = { itemId: productId, quantity: 1 };
         setShoppingCart([...shoppingCart, newShoppingCartItem]);
         console.log("new quantity=", newShoppingCartItem);
       } 
@@ -67,10 +67,10 @@ export default function App() {
     }
 
 
-    function handleRemoveItemFromCart(product,shoppingCart) {
+    function handleRemoveItemFromCart(productId) {
       //this function removes items from the shopping cart
       let newShoppingCartItem;
-      const idx = shoppingCart.findIndex(item => item.itemId == product.id);
+      const idx = shoppingCart.findIndex(item => item.itemId == productId);
       if (idx !== -1){
         if (shoppingCart[idx].quantity > 0) {
           newShoppingCartItem = shoppingCart[idx].quantity -= 1;
@@ -103,7 +103,7 @@ export default function App() {
             {
               <Routes>
                 <Route path="/" element={<Home shoppingCart={shoppingCart} isOpen={isOpen} products={products} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle}/>} />
-                <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart}/>} />
+                <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
               </Routes>
             }

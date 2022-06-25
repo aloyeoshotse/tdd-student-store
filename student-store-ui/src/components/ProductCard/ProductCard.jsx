@@ -19,9 +19,9 @@ export function ProductCard({ product, productId, shoppingCart, addItems, allowL
             <div className="product-info">
                 <span className="product-name">{product.name}</span>
                 <span className="product-price">${dollarUSFormat.format(product.price)}</span>
-                <button className="remove" onClick={() => removeItems(product, shoppingCart)}>-</button>
+                <button className="remove" onClick={() => removeItems(product.id)}>-</button>
                 {idx === -1 ? <span className="product-quantity">0</span> :  <span className="product-quantity">{shoppingCart[idx].quantity}</span>}
-                <button className="add" onClick={() => addItems(product, shoppingCart)}>+</button>
+                <button className="add" onClick={() => addItems(product.id)}>+</button>
             </div>
             {showDescription===true ? <div className="product-description">{product.description}</div> : null}
             </div>

@@ -11,7 +11,7 @@ import {About} from "../About/About";
 export default function Home({ shoppingCart, isOpen, products, addItems, removeItems, handleOnToggle}) {
   return (
     <div className="home">
-      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle}/>
+      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle}/>
       <Navbar />
       <Link to="/" />
       <Hero />

@@ -1,0 +1,11 @@
+.shopping-cart {
+    background-color: black;
+    height: 80%;
+    width: 300px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    overflow-x: hidden;
+    background-color: lightblue;
+    /* add border color */
+}
