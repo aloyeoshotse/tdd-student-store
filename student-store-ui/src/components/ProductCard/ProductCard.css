@@ -1,5 +1,8 @@
 .product-card {
-    margin: 1cm;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1cm;
     border-radius: 25px;
     width: 3.12in;
     height: 400px;

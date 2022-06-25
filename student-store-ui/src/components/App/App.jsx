@@ -38,6 +38,7 @@ export default function App() {
       })
       }, [])
 
+
   function handleOnToggle(isOpen) {
     //handles the open and closed status of the sidebar
    {return isOpen ? setIsOpen(false) : setIsOpen(true)}
@@ -55,7 +56,6 @@ export default function App() {
       setShoppingCart([...shoppingCart, newShoppingCartItem]);
       console.log("new quantity=", newShoppingCartItem);
     } 
-    
     else {
       /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
       newShoppingCartItem = shoppingCart[idx].quantity += 1;
@@ -64,7 +64,6 @@ export default function App() {
       //console.log("quatity more than 1=", shoppingCart[idx].quantity);
     }
   }
-
 
 
   function handleRemoveItemFromCart(product,shoppingCart) {

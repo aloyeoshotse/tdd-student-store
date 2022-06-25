@@ -1,16 +1,11 @@
 .product-grid {
         display: flex;
-        place-items:  center;
+        place-items: center;
         flex-wrap: wrap;
-        width: 70%;
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1cm;
+        margin-top: 4in;
         /* background-color: black; */
-        align-items: center;
+        justify-content: center;
 }
-
-/* .product-grid .product-card .media {
-    height: 250px;
-    width: 100%;
-} */
