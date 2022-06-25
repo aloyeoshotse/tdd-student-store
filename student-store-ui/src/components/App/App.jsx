@@ -45,40 +45,41 @@ export default function App() {
 
 
   function handleAddItemToCart(product, shoppingCart) {
+    //this function adds items to the shopping cart
+    let newShoppingCartItem;
     const idx = shoppingCart.findIndex(item => item.itemId == product.id);
     if (idx == -1){
       /* checks if shoppingCart contains the object with a similar id as what is passed into function 
           if it does not, it assigns the object and adds it to the array*/
-      const newShoppingCartItem = { itemId: product.id, quantity: 1 };
+      newShoppingCartItem = { itemId: product.id, quantity: 1 };
       setShoppingCart([...shoppingCart, newShoppingCartItem]);
       console.log("new quantity=", newShoppingCartItem);
     } 
     
     else {
       /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
-      shoppingCart[idx].quantity += 1;
-      setShoppingCart(shoppingCart);
+      newShoppingCartItem = shoppingCart[idx].quantity += 1;
+      setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
+      setShoppingCart([...shoppingCart,newShoppingCartItem])
       //console.log("quatity more than 1=", shoppingCart[idx].quantity);
     }
   }
 
 
 
-  function handleRemoveItemFromCart(productId) {
+  function handleRemoveItemFromCart(product,shoppingCart) {
     //this function removes items from the shopping cart
-    if (
-      shoppingCart.some((item) => {
-        item.itemId === productId.id;
-      })
-    ) {
-      /* checks if shoppingCart contains the object with a similar id as what is passed into function 
-          if it does , it decreaces the quantity*/
-      shoppingCart.find((item) => {
-        item.itemId === productId.id;
-      }).quantity -= 1;
-      shoppingCart.filter((item) => {
-        item.quantity > 0;
-      });
+    let newShoppingCartItem;
+    const idx = shoppingCart.findIndex(item => item.itemId == product.id);
+    if (idx !== -1){
+      if (shoppingCart[idx].quantity > 0) {
+        newShoppingCartItem = shoppingCart[idx].quantity -= 1;
+        setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
+        setShoppingCart([...shoppingCart,newShoppingCartItem])
+      }
+      else {
+        setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
+      }
     }
   }
 
