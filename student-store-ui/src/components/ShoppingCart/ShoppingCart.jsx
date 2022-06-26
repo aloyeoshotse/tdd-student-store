@@ -5,7 +5,7 @@ export function ShoppingCart({isOpen, products, shoppingCart}) {
     let dollarUSFormat = Intl.NumberFormat('en-US');
     let subtotal = 0.00;
     const tax = 0.0875
-    console.log("len=",shoppingCart)
+    console.log("Shopping Cart=",shoppingCart)
            {return( 
 
                 shoppingCart.length === 0 ?

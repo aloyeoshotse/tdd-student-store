@@ -48,23 +48,27 @@ export default function App() {
 
     function handleAddItemToCart(productId) {
       //this function adds items to the shopping cart
+      console.log("before: ",shoppingCart)
       let newShoppingCartItem;
-      const idx = shoppingCart.findIndex(item => item.itemId == productId);
-      if (idx == -1){
+      const idx = shoppingCart.find(item => item.itemId == productId);
+      console.log("IDX: ", idx)
+      if (idx == null){
         /* checks if shoppingCart contains the object with a similar id as what is passed into function 
             if it does not, it assigns the object and adds it to the array*/
         newShoppingCartItem = { itemId: productId, quantity: 1 };
-        setShoppingCart([...shoppingCart, newShoppingCartItem]);
+        setShoppingCart(shoppingCart.concat(newShoppingCartItem));
         console.log("new quantity=", newShoppingCartItem);
       } 
       else {
         /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
-        newShoppingCartItem = shoppingCart[idx].quantity += 1;
-        setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
-        setShoppingCart([...shoppingCart,newShoppingCartItem])
-        //console.log("quatity more than 1=", shoppingCart[idx].quantity);
+        const newShoppingCart = [...shoppingCart]
+        newShoppingCart.forEach((items) => {
+          if (items.itemId == productId){items.quantity += 1;}
+        })
+        setShoppingCart(newShoppingCart);
       }
     }
+
 
 
     function handleRemoveItemFromCart(productId) {
