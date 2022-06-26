@@ -11,8 +11,10 @@ export function Sidebar({isOpen, shoppingCart, products, checkoutForm, handleOnC
                   <div className="open-sidebar">
                     <button id="toggle-button-close" onClick={() => {handleOnToggle(isOpen)}}>close</button>
                   </div>
-                  <ShoppingCart isOpen={isOpen} products={products} shoppingCart={shoppingCart}/>
-                </section> : 
+                  <ShoppingCart products={products} shoppingCart={shoppingCart}/>
+                </section> 
+                
+                : 
                 
                 <section className="sidebar">
                   <div className="close-sidebar">

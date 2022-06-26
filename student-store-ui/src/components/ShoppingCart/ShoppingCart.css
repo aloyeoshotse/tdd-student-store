@@ -9,3 +9,83 @@
     background-color: lightblue;
     /* add border color */
 }
+
+.cart-card-bottom {
+    position: relative;
+    top: 20px;
+    text-align: left;
+    left: 20px;
+    font-size: 18px;
+}
+
+.notification {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.subtotal {
+    position: relative;
+    left: 250px;
+    font-size: 18px;
+}
+
+.taxes-fees {
+    position: relative;
+    left: 250px;
+    font-size: 18px;
+}
+
+.total-price {
+    position: relative;
+    left: 250px;
+    font-size: 18px;
+}
+
+.name {
+    position: relative;
+    left: -50px;
+    font-size: 18px;
+}
+
+.quantity {
+    position: relative;
+    left: 30px;
+    font-size: 18px;
+}
+
+.unit-price {
+    position: relative;
+    left: 50px;
+    font-size: 18px;
+}
+
+.price {
+    position: relative;
+    left: 70px;
+    font-size: 18px;
+}
+
+.cart-product-name {
+    position: relative;
+    left: 29px;
+    font-size: 18px;
+}
+
+.cart-product-quantity {
+    position: relative;
+    left: 45px;
+    font-size: 18px;
+}
+
+.cart-product-unitprice {
+    position: relative;
+    left: 60px;
+    font-size: 18px;
+}
+
+.card-product-total {
+    position: relative;
+    left: 70px;
+    font-size: 18px;
+}

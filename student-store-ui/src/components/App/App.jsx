@@ -48,41 +48,46 @@ export default function App() {
 
     function handleAddItemToCart(productId) {
       //this function adds items to the shopping cart
-      console.log("before: ",shoppingCart)
       let newShoppingCartItem;
       const idx = shoppingCart.find(item => item.itemId == productId);
-      console.log("IDX: ", idx)
       if (idx == null){
         /* checks if shoppingCart contains the object with a similar id as what is passed into function 
             if it does not, it assigns the object and adds it to the array*/
         newShoppingCartItem = { itemId: productId, quantity: 1 };
         setShoppingCart(shoppingCart.concat(newShoppingCartItem));
-        console.log("new quantity=", newShoppingCartItem);
+        //console.log("new quantity=", newShoppingCartItem);
       } 
       else {
         /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
-        const newShoppingCart = [...shoppingCart]
-        newShoppingCart.forEach((items) => {
+        newShoppingCartItem = [...shoppingCart]
+        newShoppingCartItem.forEach((items) => {
           if (items.itemId == productId){items.quantity += 1;}
         })
-        setShoppingCart(newShoppingCart);
+        setShoppingCart(newShoppingCartItem);
       }
     }
-
 
 
     function handleRemoveItemFromCart(productId) {
       //this function removes items from the shopping cart
       let newShoppingCartItem;
       const idx = shoppingCart.findIndex(item => item.itemId == productId);
-      if (idx !== -1){
+      console.log("IDX=",idx)
+      if (idx != -1){
         if (shoppingCart[idx].quantity > 0) {
-          newShoppingCartItem = shoppingCart[idx].quantity -= 1;
-          setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
-          setShoppingCart([...shoppingCart,newShoppingCartItem])
+          newShoppingCartItem = [...shoppingCart]
+          console.log("before=",newShoppingCartItem)
+          newShoppingCartItem.forEach((items) => {
+            if (items.itemId == productId){items.quantity -= 1;}
+          })
+          console.log("after1=",newShoppingCartItem)
+          setShoppingCart(newShoppingCartItem)
+          console.log("after2=",newShoppingCartItem)
         }
-        else {
-          setShoppingCart((items) => items.filter((item,index) => {index !== idx}));
+        if (shoppingCart[idx].quantity == 0) {
+          let filteredCart = shoppingCart.filter(((item,index) => {return index != idx}))
+          console.log("filtered=",filteredCart)
+          setShoppingCart(filteredCart);
         }
       }
     }
@@ -108,7 +113,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home shoppingCart={shoppingCart} isOpen={isOpen} products={products} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle}/>} />
                 <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
-                <Route path="*" element={<NotFound isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
+                <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
               </Routes>
             }
           </main>

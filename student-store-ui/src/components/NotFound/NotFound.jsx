@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export function NotFound({isOpen, handleOnToggle}) {
+export function NotFound({products, shoppingCart, isOpen, handleOnToggle}) {
   return (
     <div className="not-found">
       <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart}handleOnToggle={handleOnToggle}/>
