@@ -9,7 +9,7 @@ export function Sidebar({isOpen, shoppingCart, products, checkoutForm, handleOnC
   return ( 
     isOpen ?  <section className="sidebar">
                   <div className="open-sidebar">
-                    <button id="toggle-button-close" onClick={() => {handleOnToggle(isOpen)}}>close</button>
+                    <i id="toggle-button-close" onClick={() => {handleOnToggle(isOpen)}}>arrow_backward</i>
                   </div>
                   <ShoppingCart products={products} shoppingCart={shoppingCart}/>
                 </section> 
@@ -18,7 +18,7 @@ export function Sidebar({isOpen, shoppingCart, products, checkoutForm, handleOnC
                 
                 <section className="sidebar">
                   <div className="close-sidebar">
-                    <button id="toggle-button-open" onClick={() => {handleOnToggle(isOpen)}}>open</button>
+                    <i id="toggle-button-open" onClick={() => {handleOnToggle(isOpen)}}>arrow_forward</i>
                   </div>
                 </section>
     )

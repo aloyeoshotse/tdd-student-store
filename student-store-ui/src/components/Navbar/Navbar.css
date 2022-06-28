@@ -5,6 +5,8 @@
     position: fixed;
     z-index:1000;
     overflow-y: hidden;
+    border: solid;
+    border-color: thick double white;
 }
 
 #home {

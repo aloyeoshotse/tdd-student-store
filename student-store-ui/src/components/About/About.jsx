@@ -5,7 +5,7 @@ import {Navbar} from "../Navbar/Navbar"
 import { Link } from "react-router-dom"
 import Home from "../Home/Home"
 
-export function About({}) {
+export function About() {
     return (
         <div className="about">
             <h2 className="about-header">About</h2>
