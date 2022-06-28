@@ -14,3 +14,22 @@
 .home .navbar {
   float: top;
 }
+
+.sub-nav {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1cm;
+}
+
+.search-bar {
+  width: 6in;
+  height: 1cm;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 20px;
+}
+
+.search-btn {
+  width: 40px;
+  height: 1.05cm;
+}

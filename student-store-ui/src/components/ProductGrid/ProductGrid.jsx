@@ -3,6 +3,7 @@ import "./ProductGrid.css"
 import { ProductCard } from "../ProductCard/ProductCard"
 
 export function ProductGrid({products, addItems, removeItems, shoppingCart}) {
+    
     return(
         <div className="product-grid">
             <h2 className="grid-title">Products</h2>
