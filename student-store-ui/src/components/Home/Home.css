@@ -22,6 +22,7 @@
 }
 
 .search-bar {
+  position: relative;
   width: 6in;
   height: 1cm;
   border-top-left-radius: 10px;
@@ -30,6 +31,11 @@
 }
 
 .search-btn {
+  position: relative;
   width: 40px;
   height: 1.05cm;
+}
+
+.category {
+  margin: 2cm;
 }
