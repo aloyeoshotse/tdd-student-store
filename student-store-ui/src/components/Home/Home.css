@@ -21,6 +21,10 @@
   margin-top: 1cm;
 }
 
+.form {
+margin-right: 1in;
+}
+
 .search-bar {
   position: relative;
   width: 6in;
@@ -36,6 +40,17 @@
   height: 1.05cm;
 }
 
+.filter-categories {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1cm;
+  font-size: 18px;
+}
+
 .category {
   margin: 2cm;
+}
+
+.filter-categories :hover {
+  font-weight: bold;
 }

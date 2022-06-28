@@ -18,15 +18,15 @@ export function About({}) {
                 <h2 className="contact-header">Contact Us</h2>
                 <div className="contact-card">
                     <p className="contact-info">
-                        <span className="label">Email:</span>
+                        <span className="label">Email: </span>
                         <span>code@path.org</span>
                     </p>
                     <p className="contact-info">
-                        <span className="label">Phone:</span>
+                        <span className="label">Phone: </span>
                         <span>1-800-CODEPATH</span>
                     </p>
                     <p className="contact-info">
-                        <span className="label">Address:</span>
+                        <span className="label">Address: </span>
                         <span>123 Fake Street, San Francisco, CA</span>
                     </p>
                 </div>
