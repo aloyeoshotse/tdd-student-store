@@ -15,7 +15,7 @@ export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, sh
   console.log("id=",params.productId)
 
   useEffect(() => {
-    axios.get("https://codepath-store-api.herokuapp.com/store/" + params.productId)
+    axios.get("localhost:3001/store/" + params.productId)
       .then((res) => {
         setProduct(res.data.product)
       })

@@ -18,7 +18,7 @@ flow2: App --> ProductDetail --> ProductView
 */
 
 export default function App() {
-    const apiURL = "https://codepath-store-api.herokuapp.com/store";
+    const apiURL = "localhost:3001/store";
     const [products, setProducts] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState("");
