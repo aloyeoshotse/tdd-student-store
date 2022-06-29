@@ -1,20 +1,20 @@
 const express = require('express');
-const {storage} = require('../data/storage')
-const {NotFoundError} = require("../utils/errors")
 const router = express.Router();
+ const storeModels = require('../models/store');
+const {NotFoundError} = require("../utils/errors")
 
 router.get('/', async (req,res) => {
     res.status(200)
-    res.json(storage.get("products").value())
+    let productsData = storeModels.getProducts("products");
+    res.json(productsData)
 })
 
 router.get('/:id', async (req,res) => {
     res.status(200);
-    var index = parseInt(req.params.id)
-    const products = storage.get("products").value()
-    const foundProduct = products.find(item => item.id == index)
-    if (!foundProduct) {throw new NotFoundError()}
-    res.json(foundProduct)
+    let singleProduct = storeModels.getSelectedProduct("products",req.params.id)
+    res.json(singleProduct)
 })
+
+//router.post("")
 
 module.exports = router;
