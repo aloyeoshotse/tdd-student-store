@@ -18,7 +18,7 @@ flow2: App --> ProductDetail --> ProductView
 */
 
 export default function App() {
-    const apiURL = "localhost:3001/store";
+    const apiURL = "http://localhost:3001/store";
     const [products, setProducts] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState("");
@@ -29,7 +29,8 @@ export default function App() {
     useEffect(() => {
       axios.get(apiURL)
         .then((res) => {
-          setProducts(res.data.products);
+          //console.log(res);
+          setProducts(res.data);
           if (products.length == 0) {
             setError("No products found");
           }

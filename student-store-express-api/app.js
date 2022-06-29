@@ -17,20 +17,20 @@ app.get('/', (req,res) =>{
 
 
 //error handler
-app.use((req,res,next) => {
-   const err = new Error('fill with error message')
-   err.status = 404;
-   next(err)
-})
+// app.use((req,res,next) => {
+//    const err = new Error('fill with error message')
+//    err.status = 404;
+//    next(err)
+// })
 
-app.use((error,req,res,next) => {
-    let status = error.status || 500
-    let message = error.message || 'Something went wrong in the application'
+// app.use((error,req,res,next) => {
+//     let status = error.status || 500
+//     let message = error.message || 'Something went wrong in the application'
 
-    return res.status(status).json({
-        error : {message, status}
-    })
-})
+//     return res.status(status).json({
+//         error : {message, status}
+//     })
+// })
 
 
 module.exports = app;

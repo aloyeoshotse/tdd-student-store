@@ -11,13 +11,14 @@ import axios from "axios";
 
 export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, shoppingCart, products}) {
   const [product, setProduct] = useState();
-  const params = useParams();
-  console.log("id=",params.productId)
+  const {productId} = useParams();
+  console.log("id=",productId)
 
   useEffect(() => {
-    axios.get("localhost:3001/store/" + params.productId)
+    axios.get("http://localhost:3001/store/" + productId)
       .then((res) => {
-        setProduct(res.data.product)
+        console.log("product= ",res)
+        setProduct(res.data)
       })
   },[])
   
@@ -26,7 +27,7 @@ export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, sh
     <div className="product-detail">
       <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} />
       <Navbar />
-     { !product ? null : <ProductView product={product} productId={params.productId} addItems={addItems} removeItems={removeItems} shoppingCart={shoppingCart}/>}
+     { !product ? null : <ProductView product={product} productId={productId} addItems={addItems} removeItems={removeItems} shoppingCart={shoppingCart}/>}
     </div>
   );
 }
