@@ -11,12 +11,6 @@ import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
 import {About} from "../About/About"
 
-/*
-flow1: App --> Home --> ProductGrid --> ProductCard 
-
-flow2: App --> ProductDetail --> ProductView
-*/
-
 export default function App() {
     const apiURL = "http://localhost:3001/store";
     const [products, setProducts] = useState([]);
@@ -24,7 +18,7 @@ export default function App() {
     const [error, setError] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [shoppingCart, setShoppingCart] = useState([]);
-    const [checkoutForm, setCheckoutForm] = useState();
+    const [checkoutForm, setCheckoutForm] = useState({shoppingCart, user:{name: "", email: ""}});
 
     useEffect(() => {
       axios.get(apiURL)
@@ -93,18 +87,30 @@ export default function App() {
       }
     }
 
-    // function handleOnCheckoutFormChange(name,value) {
-    //   /*this function updates the checkoutForm state variable */
-    //   //const newCheckOutObject = {name: name, value: value}
-    //   setCheckoutForm();
-    // }
+    function handleOnCheckoutFormChange(name,value) {
+      /*this function updates the checkoutForm state variable */
+      let newObj = checkoutForm;
+      let user = checkoutForm.user;
+      let pair = {[name] : value}
+      user = {...user, ...pair} //this function might not work
+      newObj = {...newObj, ...user} //this function might not work
+      setCheckoutForm(newObj);
+    }
 
-    // function handleOnSubmitCheckoutForm() {
-    //   /*this function submits the user's order to the API*/
-    //   const user = {name: , email: }
-    //   axios.post('/store', {
-    //     user {name: }})
-    // }
+    function handleOnSubmitCheckoutForm() {
+      /*this function submits the user's order to the API*/
+      // const user = {name: , email: }
+      // axios.post('/store', {
+      //   user {name: }})
+      useEffect(async () =>{
+        try {
+          await axios.post("/store", checkoutForm);
+        }
+        catch(err) {
+          console.log(err);
+        }
+      }, [])
+    }
 
     return (
       <div className="app">

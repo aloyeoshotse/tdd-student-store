@@ -20,7 +20,7 @@ router.post("/", async(req,res,next) => {
     try{
         let shoppingCart = req.body.shoppingCart;
         let user = req.body.user;
-        let allPurchases = storage.get("purchases").value();
+        let allPurchases = storage.get("purchases");
         let purchaseOrder = storeModels.createPurchaseOrder(shoppingCart, user);
         allPurchases = allPurchases.push(purchaseOrder);
         storage.set("purchases", allPurchases);

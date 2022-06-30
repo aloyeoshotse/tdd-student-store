@@ -19,6 +19,10 @@
 }
 
 .product-view #img {
-    width: 4in;
+    width: 3in;
     height: auto;
+}
+
+.product-view{
+    height: max-content;
 }

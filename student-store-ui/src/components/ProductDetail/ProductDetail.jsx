@@ -25,8 +25,8 @@ export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, sh
 
   return (
     <div className="product-detail">
-      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} />
       <Navbar />
+      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} />
      { !product ? null : <ProductView product={product} productId={productId} addItems={addItems} removeItems={removeItems} shoppingCart={shoppingCart}/>}
     </div>
   );

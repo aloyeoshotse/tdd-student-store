@@ -9,17 +9,24 @@
     border-color: thick double white;
 }
 
+.navbar .image {
+    position: relative;
+}
+
 #home {
     position: relative;
     left: 28cm;
+    bottom: 50px;
 }
 
 #about {
     position: relative;
     left: 32cm;
+    bottom: 50px;
 }
 
 #contact {
     position: relative;
     left: 36cm;
+    bottom: 50px;
 }
