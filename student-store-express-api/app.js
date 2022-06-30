@@ -11,7 +11,7 @@ app.use('/store', storeRoute)
 
 
 app.get('/', (req,res) =>{
-    res.status(200).json({"ping":"pong"})
+    res.status(200).json({"url":"https://open.spotify.com/track/21IiEw3SqSLLcMmPQt44zC?si=244c5ef3c0da4ccf"})
 })
 
 
