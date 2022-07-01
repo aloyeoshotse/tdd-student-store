@@ -49,7 +49,9 @@ class Store {
         shoppingCart is an array of objects with itemId and quantity properties
         user is an object with name and email properties --> (should we throw error for empty user field?)
         */
-        if (!shoppingCart || !user) {return false} //check for empty params
+        if (!shoppingCart || !user) {return false} //check for empty params/undefined shoppingCart
+        if (shoppingCart.length == 0) {return false} //checks for empty shoppingCart
+        if (user.name == "" || user.email == "") {return false}
         if (this.containsDuplicates(shoppingCart)) {return false} //checks for duplicates in shoppingCart
         if (this.missingField(shoppingCart)) {return false} //checks to see if shoppingCart is missing a field
         if (this.missingField(user)) {return false}
@@ -97,7 +99,7 @@ class Store {
         */
 
         let validShoppingCart = this.validShoppingCart(shoppingCart, user)
-        if (!validShoppingCart) {return new BadRequestError();}
+        if (!validShoppingCart) {return false;}
     
         let getId = (storage.get("purchases").value().length) + 1; //make function to get total number of purchases
         let getName = user.name;
@@ -114,6 +116,10 @@ class Store {
             total: getTotal,
             createdAt: getCreatedAt
         }
+
+        // let allPurchases = storage.get("purchases");
+        // allPurchases = allPurchases.push(newPurchaseObject);
+        // storage.set("purchases", allPurchases);
 
         return newPurchaseObject;
     }

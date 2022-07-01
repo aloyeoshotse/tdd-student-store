@@ -39,6 +39,10 @@
     left: 10px;
      /* z-index: -1; */
 }
+
+.product-name{ 
+    margin-left: 10px;
+}
 /* 
 .stars {
     display: flex;

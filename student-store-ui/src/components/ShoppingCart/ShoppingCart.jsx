@@ -1,10 +1,16 @@
 import * as React from "react"
 import "./ShoppingCart.css"
 
-export function ShoppingCart({products, shoppingCart}) {
+export function ShoppingCart({products, shoppingCart, setShoppingCart}) {
     let dollarUSFormat = Intl.NumberFormat('en-US',{style: 'currency', currency: 'USD', minimumFractionDigits: 2})
     let subtotal = 0.00;
     const tax = 0.0875
+
+    function clearCart(event) {
+        event.preventDefault();
+        setShoppingCart([]);
+    }
+
            {return( 
                 shoppingCart.length === 0 ?
 
@@ -28,10 +34,10 @@ export function ShoppingCart({products, shoppingCart}) {
                             subtotal += (pricetotal);
                             return(
                             <tr className="cart-card-top">
-                                <td key={idx} className="cart-product-name">{products[item.itemId - 1].name}</td>
-                                <td key={idx} className="cart-product-quantity">{item.quantity}</td>
-                                <td key={idx} className="cart-product-unitprice">{dollarUSFormat.format(unitprice)}</td>
-                                <td key={idx} className="card-product-total">{dollarUSFormat.format(pricetotal)}</td>
+                                <td className="cart-product-name">{products[item.itemId - 1].name}</td>
+                                <td className="cart-product-quantity">{item.quantity}</td>
+                                <td className="cart-product-unitprice">{dollarUSFormat.format(unitprice)}</td>
+                                <td className="card-product-total">{dollarUSFormat.format(pricetotal)}</td>
                             </tr>
                             )
                         })}
@@ -52,6 +58,7 @@ export function ShoppingCart({products, shoppingCart}) {
                             </tr>
                         </tr>
                     </table>
+                    <button className="clear-cart" onClick={(event) => clearCart(event)}>Clear</button> 
                 </div>
 
            )}

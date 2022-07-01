@@ -5,13 +5,13 @@ import "./Sidebar.css"
 
 //sidebar link: https://codepen.io/vyvm/pen/abqgdgK
 
-export function Sidebar({isOpen, shoppingCart, products, checkoutForm, handleOnCheckoutFormChange, handleOnSubmitCheckoutForm, handleOnToggle}) {
+export function Sidebar({setShoppingCart, isOpen, shoppingCart, products, checkoutForm, handleOnCheckoutFormChange, handleOnSubmitCheckoutForm, handleOnToggle}) {
   return ( 
     isOpen ?  <section className="sidebar">
                   <div className="open-sidebar">
                     <i id="toggle-button-close" onClick={() => {handleOnToggle(isOpen)}}>arrow_backward</i>
                   </div>
-                  <ShoppingCart products={products} shoppingCart={shoppingCart}/>
+                  <ShoppingCart products={products} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>
                   <CheckoutForm shoppingCart={shoppingCart} checkoutForm={checkoutForm} 
                                   handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>
                 </section> 

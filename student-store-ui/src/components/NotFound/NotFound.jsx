@@ -7,8 +7,8 @@ import Sidebar from "../Sidebar/Sidebar";
 export function NotFound({products, shoppingCart, isOpen, handleOnToggle}) {
   return (
     <div className="not-found">
-      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart}handleOnToggle={handleOnToggle}/>
-      <Navbar />
+      {/* <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart}handleOnToggle={handleOnToggle}/>
+      <Navbar /> */}
       <Link to="*" />
       <p id="text">not found</p>
     </div>

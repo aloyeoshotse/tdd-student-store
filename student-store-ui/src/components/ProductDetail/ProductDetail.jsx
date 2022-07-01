@@ -9,7 +9,7 @@ import ProductView from "../ProductView/ProductView";
 import axios from "axios";
 
 
-export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, shoppingCart, products}) {
+export function ProductDetail({checkoutForm, setShoppingCart, isOpen, handleOnToggle, addItems, removeItems, shoppingCart, products}) {
   const [product, setProduct] = useState();
   const {productId} = useParams();
   console.log("id=",productId)
@@ -25,8 +25,8 @@ export function ProductDetail({isOpen, handleOnToggle, addItems, removeItems, sh
 
   return (
     <div className="product-detail">
-      <Navbar />
-      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} />
+      {/* <Navbar />
+      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} /> */}
      { !product ? null : <ProductView product={product} productId={productId} addItems={addItems} removeItems={removeItems} shoppingCart={shoppingCart}/>}
     </div>
   );

@@ -100,22 +100,21 @@ export default function App() {
     function handleOnSubmitCheckoutForm(event) {
       /*this function submits the user's order to the API*/
       event.preventDefault();
+      
       let newObj = {
             "shoppingCart": shoppingCart,
             "user": checkoutForm
           }
 
-        console.log("obj = ", newObj)
-        console.log("scart = ", shoppingCart)
-        console.log('form = ', checkoutForm)
-        //apiURL
         axios.post(apiURL, newObj)
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
+          alert("Success! Thank you for your purchase!")
         })
         .catch((err) => {
           setError(err)
           console.log(error)
+          alert("Error: Please check that cart has items in it and that the name and email fields are filled out.")
         })
     }
 
@@ -123,10 +122,12 @@ export default function App() {
       <div className="app">
         <BrowserRouter>
           <main>
+          <Navbar />
+          <Sidebar checkoutForm={checkoutForm} isOpen={isOpen} products={products} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>
             {
               <Routes>
-                <Route path="/" element={<Home checkoutForm={checkoutForm}  shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
-                <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
+                <Route path="/" element={<Home checkoutForm={checkoutForm}  setShoppingCart={setShoppingCart} shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
+                <Route path="/products/:productId" element={<ProductDetail checkoutForm={checkoutForm} setShoppingCart={setShoppingCart} isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
               </Routes>
             }

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const storeModels = require('../models/store');
 const {storage} = require('../data/storage');
-// const {NotFoundError} = require("../utils/errors")
+const {BadRequestError} = require("../utils/errors")
 
 router.get('/', async (req,res) => {
     res.status(200)
@@ -22,13 +22,15 @@ router.post("/", async(req,res,next) => {
         let user = req.body.user;
         let allPurchases = storage.get("purchases");
         let purchaseOrder = storeModels.createPurchaseOrder(shoppingCart, user);
-        allPurchases = allPurchases.push(purchaseOrder);
-        storage.set("purchases", allPurchases);
-        res.status(201).send({"purchase": purchaseOrder})
-        res.send(allPurchases)
-    }
+        if (!purchaseOrder) {throw new BadRequestError()}
+        allPurchases.push(purchaseOrder).write();
+        //storage.set("purchases", allPurchases);
+        // await res.status(201).send({"purchase": purchaseOrder});
+        res.json(allPurchases);
+        }
     catch (err){
         next(err)
+        // res.status(400).json(err)
     }
 })
 

@@ -12,12 +12,13 @@
 }
 
 .open-sidebar {
-    height: 100%;
+    height: 200%;
     width: 550px;
     position: fixed;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     z-index: 1;
     top: 0;
-    overflow-x: hidden;
     background-color: lightblue;
     border: solid;
     border-color: thick double white;
@@ -89,17 +90,28 @@
 }
 
 .sidebar .checkout-form {
+    width: 400px;;
+    /* background-color: black; */
     position: fixed;
-    left: 4cm;
+    /* left: cm; */
     top: 6in;
     z-index: 1;
 }
 
 .sidebar .checkout-form-input {
+    zoom: 125%;
     display: flex;
+    margin-top: 10px;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     z-index: 2;
 }
 
+.sidebar .checkout-button{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
