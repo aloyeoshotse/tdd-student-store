@@ -18,7 +18,7 @@ export default function App() {
     const [error, setError] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [shoppingCart, setShoppingCart] = useState([]);
-    const [checkoutForm, setCheckoutForm] = useState({shoppingCart, user:{name: "", email: ""}});
+    const [checkoutForm, setCheckoutForm] = useState({name: "", email: ""});
 
     useEffect(() => {
       axios.get(apiURL)
@@ -50,7 +50,6 @@ export default function App() {
             if it does not, it assigns the object and adds it to the array*/
         newShoppingCartItem = { itemId: productId, quantity: 1 };
         setShoppingCart(shoppingCart.concat(newShoppingCartItem));
-        //console.log("new quantity=", newShoppingCartItem);
       } 
       else {
         /* if shoppingCart contains the object, it simply icrements the quantity by 1*/
@@ -89,6 +88,7 @@ export default function App() {
 
     function handleOnCheckoutFormChange(name,value) {
       /*this function updates the checkoutForm state variable */
+        console.log(value)
       let newObj = checkoutForm;
       let user = checkoutForm.user;
       let pair = {[name] : value}
@@ -97,19 +97,26 @@ export default function App() {
       setCheckoutForm(newObj);
     }
 
-    function handleOnSubmitCheckoutForm() {
+    function handleOnSubmitCheckoutForm(event) {
       /*this function submits the user's order to the API*/
-      // const user = {name: , email: }
-      // axios.post('/store', {
-      //   user {name: }})
-      useEffect(async () =>{
-        try {
-          await axios.post("/store", checkoutForm);
-        }
-        catch(err) {
-          console.log(err);
-        }
-      }, [])
+      event.preventDefault();
+      let newObj = {
+            "shoppingCart": shoppingCart,
+            "user": checkoutForm
+          }
+
+        console.log("obj = ", newObj)
+        console.log("scart = ", shoppingCart)
+        console.log('form = ', checkoutForm)
+        //apiURL
+        axios.post(apiURL, newObj)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          setError(err)
+          console.log(error)
+        })
     }
 
     return (
@@ -118,7 +125,7 @@ export default function App() {
           <main>
             {
               <Routes>
-                <Route path="/" element={<Home shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle}/>} />
+                <Route path="/" element={<Home checkoutForm={checkoutForm}  shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
                 <Route path="/products/:productId" element={<ProductDetail isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
               </Routes>

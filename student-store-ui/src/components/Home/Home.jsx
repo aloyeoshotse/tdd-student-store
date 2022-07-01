@@ -11,7 +11,8 @@ import { useState } from "react";
 
 
 
-export default function Home({ shoppingCart, isOpen, products, addItems, removeItems, handleOnToggle}) {
+export default function Home({ checkoutForm, shoppingCart, isOpen, products, addItems, removeItems, 
+                                    handleOnToggle, handleOnCheckoutFormChange, handleOnSubmitCheckoutForm}) {
 
   const [filteredProducts, setFilteredProducts] = useState()
   const [searching, setSearching] = useState(false)
@@ -48,7 +49,7 @@ export default function Home({ shoppingCart, isOpen, products, addItems, removeI
 
   return (
     <div className="home">
-      <Sidebar isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle}/>
+      <Sidebar checkoutForm={checkoutForm} isOpen={isOpen} products={products} shoppingCart={shoppingCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>
       <Navbar />
       <Link to="/" />
       <Hero />

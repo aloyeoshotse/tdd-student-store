@@ -8,9 +8,6 @@ export function ProductCard({ product, productId, shoppingCart, addItems, allowL
     let dollarUSFormat = Intl.NumberFormat('en-US',{style: 'currency', currency: 'USD', minimumFractionDigits: 2})
     const link = `/products/${product.id}`
     const idx = shoppingCart.findIndex(item => item.itemId == product.id);
-    //console.log("prod=",product)
-    //console.log("obj=",obj)
-    //console.log("cart=",shoppingCart)
     return (
         <div className="product-card">
             <div className="media">

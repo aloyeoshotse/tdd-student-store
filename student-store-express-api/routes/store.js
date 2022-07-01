@@ -24,7 +24,8 @@ router.post("/", async(req,res,next) => {
         let purchaseOrder = storeModels.createPurchaseOrder(shoppingCart, user);
         allPurchases = allPurchases.push(purchaseOrder);
         storage.set("purchases", allPurchases);
-        res.status(201).json({"purchase": purchaseOrder})
+        res.status(201).send({"purchase": purchaseOrder})
+        res.send(allPurchases)
     }
     catch (err){
         next(err)

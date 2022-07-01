@@ -9,7 +9,6 @@ export function ProductGrid({products, addItems, removeItems, shoppingCart, sear
            {searching == true ?
            <div>No products available</div> :
            products.map((item,idx) => {
-            console.log(item)
                 return(
                     <ProductCard key={idx} product={item} shoppingCart={shoppingCart} addItems={addItems} removeItems={removeItems} showDescription={false} allowLink={true}/>
                 )

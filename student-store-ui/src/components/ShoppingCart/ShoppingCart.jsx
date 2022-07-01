@@ -5,7 +5,6 @@ export function ShoppingCart({products, shoppingCart}) {
     let dollarUSFormat = Intl.NumberFormat('en-US',{style: 'currency', currency: 'USD', minimumFractionDigits: 2})
     let subtotal = 0.00;
     const tax = 0.0875
-    //console.log("Shopping Cart=",shoppingCart)
            {return( 
                 shoppingCart.length === 0 ?
 
@@ -26,7 +25,7 @@ export function ShoppingCart({products, shoppingCart}) {
                         {shoppingCart.map((item,idx) => {
                             const unitprice = products[item.itemId-1].price;
                             const pricetotal = item.quantity * products[item.itemId-1].price;
-                            subtotal += (item.quantity * products[item.itemId - 1].price);
+                            subtotal += (pricetotal);
                             return(
                             <tr className="cart-card-top">
                                 <td key={idx} className="cart-product-name">{products[item.itemId - 1].name}</td>
