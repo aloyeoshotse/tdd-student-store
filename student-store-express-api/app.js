@@ -2,12 +2,14 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors')
 const storeRoute = require('./routes/store')
+const orderRoute = require('./routes/orders')
 const app = express();
 
 app.use(cors())
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/store', storeRoute)
+app.use('/orders', orderRoute)
 
 
 app.get('/', (req,res) =>{

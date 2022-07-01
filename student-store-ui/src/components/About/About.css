@@ -1,11 +1,11 @@
 .about {
-    background-color: lightgray;
+    background-color: white;
     margin-top: 1in;
     margin-left: 2in;
 }
 
 .about-card{
-    background-color: white;
+    background-color: lightgray;
     width: 1000px;
     height: 150px;
     margin-bottom: 1in;
@@ -22,7 +22,7 @@
 } 
 
 .contact-card {
-    background-color: white;
+    background-color: lightgray;
     width: 1000px;
     height: 150px;
     margin-bottom: 1in;

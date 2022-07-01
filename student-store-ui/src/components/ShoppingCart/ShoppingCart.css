@@ -1,14 +1,39 @@
 .shopping-cart {
-    background-color: black;
-    height: 50%;
-    width: 300px;
+    /* height: fit-content; */
+    height: fit-content;
+    width: 550px;
     position: fixed;
     z-index: 2;
     top: 0;
     overflow-x: hidden;
-    background-color: lightblue;
+    background-color: #00c385;
+    margin-left: 10px;
+    transition: 0.3s;
+    /* border: solid;
+    border-color: thick double black; */
+    
+}
+
+.shopping-cart-none{
+    height: fit-content;
+    width: 550px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    overflow-x: hidden;
+    background-color: #00c385;
+    margin-left: 10px;
     transition: 0.3s;
 }
+
+.shopping-cart-table {
+    height: 80%;
+    border: solid;
+    border-color: thick double black;
+    position: relative;
+}
+
+
 
 .cart-card-bottom {
     position: relative;
@@ -26,25 +51,25 @@
 
 .subtotal {
     position: relative;
-    left: 250px;
+    left: 285px;
     font-size: 18px;
 }
 
 .taxes-fees {
     position: relative;
-    left: 250px;
+    left: 285px;
     font-size: 18px;
 }
 
 .total-price {
     position: relative;
-    left: 250px;
+    left: 285px;
     font-size: 18px;
 }
 
 .name {
     position: relative;
-    left: -50px;
+    left: -40px;
     font-size: 18px;
 }
 
@@ -90,7 +115,12 @@
     font-size: 18px;
 }
 
+.cart-card-total {
+    margin-bottom: 10cm;
+}
+
 .clear-cart {
-    margin-top: 1cm;
-    margin-left: 11cm
+    position: relative;
+    margin-top: 2cm;
+    margin-left: 5in;
 }

@@ -86,21 +86,24 @@ export default function App() {
       }
     }
 
-    function handleOnCheckoutFormChange(name,value) {
+    function handleOnCheckoutFormChange(event) {
       /*this function updates the checkoutForm state variable */
-        console.log(value)
       let newObj = checkoutForm;
       let user = checkoutForm.user;
-      let pair = {[name] : value}
+      let pair = {[event.target.name] : event.target.value}
       user = {...user, ...pair} //this function might not work
       newObj = {...newObj, ...user} //this function might not work
       setCheckoutForm(newObj);
     }
 
+    function alertMe() {
+      alert("Success! Thank you for your purchase!")
+    }
+
     function handleOnSubmitCheckoutForm(event) {
       /*this function submits the user's order to the API*/
       event.preventDefault();
-      
+
       let newObj = {
             "shoppingCart": shoppingCart,
             "user": checkoutForm
@@ -109,13 +112,15 @@ export default function App() {
         axios.post(apiURL, newObj)
         .then((res) => {
           console.log(res.data);
-          alert("Success! Thank you for your purchase!")
         })
         .catch((err) => {
           setError(err)
           console.log(error)
           alert("Error: Please check that cart has items in it and that the name and email fields are filled out.")
         })
+        setShoppingCart([]);
+        setIsOpen(false);
+        setTimeout(alertMe,1000)
     }
 
     return (

@@ -1,5 +1,5 @@
 .navbar {
-    background-color: lightblue;
+    background-color: #00c385;
     width: 100%;
     height: 75px;
     position: fixed;
@@ -9,7 +9,7 @@
     z-index:1000;
     overflow-y: hidden;
     border: solid;
-    border-color: thick double white;
+    border-color: thick double black;
 }
 
 /* .navbar .image {

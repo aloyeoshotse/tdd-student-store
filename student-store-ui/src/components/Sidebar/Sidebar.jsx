@@ -11,8 +11,7 @@ export function Sidebar({setShoppingCart, isOpen, shoppingCart, products, checko
                   <div className="open-sidebar">
                     <i id="toggle-button-close" onClick={() => {handleOnToggle(isOpen)}}>arrow_backward</i>
                   </div>
-                  <ShoppingCart products={products} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart}/>
-                  <CheckoutForm shoppingCart={shoppingCart} checkoutForm={checkoutForm} 
+                  <ShoppingCart products={products} shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} checkoutForm={checkoutForm} 
                                   handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>
                 </section> 
                 

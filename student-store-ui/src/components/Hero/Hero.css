@@ -5,7 +5,7 @@
 }
 
 .hero .content {
-    background:lightgreen;
+    background:black;
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -24,5 +24,5 @@
     height: 350px;
     text-align: center;
     border: solid;
-    border-color: thick double white;
+    color: #00c385;
 }
