@@ -13,14 +13,14 @@ app.use('/orders', orderRoute)
 
 
 app.get('/', (req,res) =>{
-    res.status(200).json({"url":"https://open.spotify.com/track/21IiEw3SqSLLcMmPQt44zC?si=244c5ef3c0da4ccf"})
+    res.status(200).json({"app route working?":"🫡"})
 })
 
 
 
 //error handler
 app.use((req,res,next) => {
-   const err = new Error('fill with error message')
+   const err = new Error('invalid route')
    err.status = 404;
    next(err)
 })

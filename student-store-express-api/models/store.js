@@ -19,6 +19,17 @@ class Store {
         return foundProduct;
     }
 
+    // static getSelectedOrder(id) {
+    //     //retrieves single product from list of products with id
+    //     let allProducts = this.getProducts();
+    //     let index = parseInt(id);
+    //     const foundProduct = allProducts.find(item => item.id == index)
+    //     if (!foundProduct) {
+    //        return new NotFoundError()
+    //     }
+    //     return foundProduct;
+    // }
+
 
     static containsDuplicates(shoppingCart) {
         //checks if shoppingCart array has duplicate values

@@ -1,0 +1,19 @@
+- add something to UI that shows a receipt upon purchase (maybe ternary in shoppingCart)
+    - make a pop-up for this 
+- add logo to navbar in productDetails
+- add orders tab
+- save the shoppingCart on screen change (from product view to home page)
+- make receipt in backend
+- add scroll affect to about and contact sections
+- add feature to delete order
+- fix the css of page --> copy original css (do this last)
+    - change color scheme of page
+    - add table border to shoppingCart
+    - add more buttons and designs to sidebar
+    - fix about and contact us sections
+    - customize product view
+
+stretch features:
+ - create page in UI that is a database of orders and allows for 
+    user to click for more information
+ - allow for orders to be filtered by email

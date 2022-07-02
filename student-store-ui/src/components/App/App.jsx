@@ -112,15 +112,15 @@ export default function App() {
         axios.post(apiURL, newObj)
         .then((res) => {
           console.log(res.data);
+          setShoppingCart([]);
+          setIsOpen(false);
+          setTimeout(alertMe,1000)
         })
         .catch((err) => {
           setError(err)
           console.log(error)
           alert("Error: Please check that cart has items in it and that the name and email fields are filled out.")
         })
-        setShoppingCart([]);
-        setIsOpen(false);
-        setTimeout(alertMe,1000)
     }
 
     return (
@@ -134,6 +134,7 @@ export default function App() {
                 <Route path="/" element={<Home checkoutForm={checkoutForm}  setShoppingCart={setShoppingCart} shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
                 <Route path="/products/:productId" element={<ProductDetail checkoutForm={checkoutForm} setShoppingCart={setShoppingCart} isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
+                <Route path="/orders"></Route>
               </Routes>
             }
           </main>

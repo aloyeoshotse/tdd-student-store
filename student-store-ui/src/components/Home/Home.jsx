@@ -22,7 +22,7 @@ export default function Home({ setShoppingCart, checkoutForm, shoppingCart, isOp
     let newItems = [];
     var userInput = event.target.value.toLowerCase();
     products.forEach(items => {
-        if (items.name.toLowerCase().startsWith(userInput)) {
+        if (items.name.toLowerCase().includes(userInput)) {
              newItems.push(items)
          }
          if (userInput.length > 0 && newItems.length == 0){setSearching(true)}
