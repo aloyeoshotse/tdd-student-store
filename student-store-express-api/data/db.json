@@ -145,45 +145,5 @@
       "price": 999.99
     }
   ],
-  "purchases": [
-    {
-      "id": 1,
-      "name": "Aloye Oshotse",
-      "email": "aloye.oshotse@gmail.com",
-      "order": [
-        {
-          "itemId": 2,
-          "quantity": 3
-        }
-      ],
-      "total": "$4.89",
-      "createdAt": "7/2/2022, 3:34:01 PM"
-    },
-    {
-      "id": 2,
-      "name": "Aloye",
-      "email": "aloye.oshotse@gmail.com",
-      "order": [
-        {
-          "itemId": 3,
-          "quantity": 2
-        }
-      ],
-      "total": "$6.50",
-      "createdAt": "7/2/2022, 3:34:20 PM"
-    },
-    {
-      "id": 3,
-      "name": "Aloye Oshotse",
-      "email": "aloye.oshotse@gmail.com",
-      "order": [
-        {
-          "itemId": 2,
-          "quantity": 3
-        }
-      ],
-      "total": "$4.89",
-      "createdAt": "7/2/2022, 3:35:46 PM"
-    }
-  ]
+  "purchases": []
 }

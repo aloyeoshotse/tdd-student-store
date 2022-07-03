@@ -11,6 +11,7 @@ export function Navbar({handleScroll, homeRef, aboutRef}) {
       <Link to={"/"} id="home">Home</Link>
       <span id="about"> About </span>
       <span id="contact"> Contact Us </span>
+      <Link to={'/orders'} id="orders">Orders</Link>
     </nav>
   );
 }

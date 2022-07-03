@@ -12,7 +12,7 @@ order.get('/', async(req,res) => {
 })
 
 order.get('/:id', async(req,res,next) => {
-    //fix this
+    //fix this to add error message
     try {
     res.status(200);
     let purchases = storage.get("purchases");

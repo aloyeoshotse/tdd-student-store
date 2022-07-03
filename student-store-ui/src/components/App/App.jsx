@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "../ProductCard/ProductCard";
 import {About} from "../About/About"
+import Orders from "../Orders/Orders";
 
 export default function App() {
     const apiURL = "http://localhost:3001/store";
@@ -19,6 +20,7 @@ export default function App() {
     const [isOpen, setIsOpen] = useState(false);
     const [shoppingCart, setShoppingCart] = useState([]);
     const [checkoutForm, setCheckoutForm] = useState({name: "", email: ""});
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
       axios.get(apiURL)
@@ -134,7 +136,7 @@ export default function App() {
                 <Route path="/" element={<Home checkoutForm={checkoutForm}  setShoppingCart={setShoppingCart} shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
                 <Route path="/products/:productId" element={<ProductDetail checkoutForm={checkoutForm} setShoppingCart={setShoppingCart} isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
-                <Route path="/orders"></Route>
+                <Route path="/orders" element={<Orders orders={orders} setOrders={setOrders}/>} />
               </Routes>
             }
           </main>

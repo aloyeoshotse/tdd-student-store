@@ -1,6 +1,5 @@
 - add something to UI that shows a receipt upon purchase (maybe ternary in shoppingCart)
     - make a pop-up for this 
-- add logo to navbar in productDetails
 - add orders tab
 - save the shoppingCart on screen change (from product view to home page)
 - make receipt in backend
