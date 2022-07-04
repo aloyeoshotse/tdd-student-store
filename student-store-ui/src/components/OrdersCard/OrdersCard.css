@@ -1,0 +1,17 @@
+.order-card {
+    background-color: lightgray;
+    margin-left: 5cm;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    width: 10in;
+    height: 200px;
+}
+
+.order-info {
+    margin-left: 20px;
+}
+
+.order-quantity {
+    position: absolute;
+    right: 13.5cm;
+}

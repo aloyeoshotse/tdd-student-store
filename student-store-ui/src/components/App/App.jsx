@@ -14,6 +14,7 @@ import Orders from "../Orders/Orders";
 
 export default function App() {
     const apiURL = "http://localhost:3001/store";
+    const orderUrl = "http://localhost:3001/orders"
     const [products, setProducts] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState("");
@@ -25,7 +26,7 @@ export default function App() {
     useEffect(() => {
       axios.get(apiURL)
         .then((res) => {
-          //console.log(res);
+          console.log(res.data);
           setProducts(res.data);
           if (products.length == 0) {
             setError("No products found");
@@ -35,6 +36,18 @@ export default function App() {
           setError("No products found")
         })
         }, [])
+
+
+    useEffect(() => {
+      axios.get(orderUrl)
+        .then((res) => {
+          console.log("orders= ",res.data)
+          setOrders(res.data);
+        })
+        .catch((err) => {
+          setError("No orders found")
+        }) 
+    }, [])
 
 
     function handleOnToggle(isOpen) {
@@ -136,7 +149,7 @@ export default function App() {
                 <Route path="/" element={<Home checkoutForm={checkoutForm}  setShoppingCart={setShoppingCart} shoppingCart={shoppingCart} isOpen={isOpen} products={products} setProducts={setProducts} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} handleOnCheckoutFormChange={handleOnCheckoutFormChange} handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}/>} />
                 <Route path="/products/:productId" element={<ProductDetail checkoutForm={checkoutForm} setShoppingCart={setShoppingCart} isOpen={isOpen} addItems={handleAddItemToCart} removeItems={handleRemoveItemFromCart} handleOnToggle={handleOnToggle} shoppingCart={shoppingCart} products={products}/>} />
                 <Route path="*" element={<NotFound products={products} shoppingCart={shoppingCart} isOpen={isOpen} handleOnToggle={handleOnToggle}/>} />
-                <Route path="/orders" element={<Orders orders={orders} setOrders={setOrders}/>} />
+                <Route path="/orders" element={<Orders products={products} orders={orders} setOrders={setOrders}/>} />
               </Routes>
             }
           </main>
